@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "999307704481",
+    "project_id": "faithgoalapp",
+    "storage_bucket": "faithgoalapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999307704481:android:41bc6ecacb64808c7818e0",
+        "android_client_info": {
+          "package_name": "com.example.goalsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgVeKlHrXOHkPuBs2gH6AgrJw9XBQpGdI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

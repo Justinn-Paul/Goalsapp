@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import '../../../models/goal.dart';
+import 'package:goals_repository/goals_repository.dart';
 
 abstract class HomeState extends Equatable {
   const HomeState();

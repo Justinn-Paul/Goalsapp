@@ -1,16 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../../../packages/repositories/goal_repository.dart';
-import '../../../models/goal.dart';
+import 'package:goals_repository/goals_repository.dart';
 import 'home_event.dart';
 import 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  final GoalRepository _goalRepository;
+  final FirebaseGoalsRepo _goalRepository;
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  HomeBloc({GoalRepository? goalRepository})
-    : _goalRepository = goalRepository ?? GoalRepository(),
+  HomeBloc({FirebaseGoalsRepo? goalRepository})
+    : _goalRepository = goalRepository ?? FirebaseGoalsRepo(),
       super(const HomeInitial()) {
     on<LoadGoals>(_onLoadGoals);
     on<FilterGoalsByCategory>(_onFilterGoalsByCategory);

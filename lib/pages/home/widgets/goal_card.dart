@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../models/goal.dart';
+import 'package:goals_repository/goals_repository.dart';
 import '../../../utils/formatters.dart';
 
 class GoalCard extends StatelessWidget {

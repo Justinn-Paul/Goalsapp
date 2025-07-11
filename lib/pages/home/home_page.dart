@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../auth/bloc/auth_bloc.dart';
-import '../auth/bloc/auth_event.dart';
+import '../../blocs/authentication_bloc/authentication_bloc.dart';
 import 'bloc/home_bloc.dart';
 import 'bloc/home_event.dart';
 import 'bloc/home_state.dart';
@@ -30,14 +29,7 @@ class HomePageView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Goals'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () {
-              context.read<AuthBloc>().add(const AuthLogoutRequested());
-            },
-          ),
-        ],
+        // actions: [], // (optional, can be omitted if no actions)
       ),
       body: Column(
         children: [
