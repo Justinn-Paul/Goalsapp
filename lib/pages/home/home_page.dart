@@ -8,6 +8,7 @@ import 'widgets/tab_selector.dart';
 import 'widgets/verse_display.dart';
 import 'widgets/goal_card.dart';
 import '../add_goal/add_goal_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -28,8 +29,25 @@ class HomePageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Goals'),
-        // actions: [], // (optional, can be omitted if no actions)
+        title: const Text(
+          'My Goals',
+          style: TextStyle(
+            color: Color.fromARGB(255, 14, 14, 14),
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.logout,
+              color: Color.fromARGB(255, 172, 167, 167),
+            ),
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut();
+            },
+          ),
+        ],
       ),
       body: Column(
         children: [

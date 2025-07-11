@@ -42,10 +42,63 @@ class TabSelector extends StatelessWidget {
         category == selectedCategory ||
         (category == null && selectedCategory == null);
 
+    // Define colors for each category
+    Color getBackgroundColor() {
+      if (isSelected) {
+        // Selected state - brighter colors
+        switch (category) {
+          case 'Faith':
+            return Colors.blue[300]!; // Brighter blue
+          case 'Music':
+            return Colors.orange[300]!; // Brighter orange
+          case 'Fitness':
+            return Colors.green[300]!; // Brighter green
+          default: // 'All'
+            return Colors.grey[400]!; // Brighter grey
+        }
+      } else {
+        // Not selected - dimmed colors
+        switch (category) {
+          case 'Faith':
+            return Colors.blue[50]!; // Dim blue
+          case 'Music':
+            return Colors.orange[50]!; // Dim orange
+          case 'Fitness':
+            return Colors.green[50]!; // Dim green
+          default: // 'All'
+            return Colors.grey[100]!; // Dim grey
+        }
+      }
+    }
+
+    Color getTextColor() {
+      if (isSelected) {
+        return Colors.white; // White text for selected
+      } else {
+        // Dimmed text colors for unselected
+        switch (category) {
+          case 'Faith':
+            return Colors.blue[400]!; // Dim blue text
+          case 'Music':
+            return Colors.orange[400]!; // Dim orange text
+          case 'Fitness':
+            return Colors.green[400]!; // Dim green text
+          default: // 'All'
+            return Colors.grey[600]!; // Dim grey text
+        }
+      }
+    }
+
     return Container(
       margin: const EdgeInsets.only(right: 8),
       child: FilterChip(
-        label: Text(label),
+        label: Text(
+          label,
+          style: TextStyle(
+            color: getTextColor(),
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+          ),
+        ),
         selected: isSelected,
         onSelected: (selected) {
           if (selected) {
@@ -58,9 +111,11 @@ class TabSelector extends StatelessWidget {
             }
           }
         },
-        backgroundColor: Colors.grey[200],
-        selectedColor: Colors.blue[100],
-        checkmarkColor: Colors.blue,
+        backgroundColor: getBackgroundColor(),
+        selectedColor: getBackgroundColor(),
+        checkmarkColor: Colors.white,
+        elevation: isSelected ? 4 : 1,
+        pressElevation: 6,
       ),
     );
   }
